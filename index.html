@@ -4,204 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HọcLiệu — Kho tài liệu học tập sinh viên</title>
-
-<!-- Bootstrap 5 -->
+<link href="assets/styles.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-<!-- Bootstrap Icons -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-<!-- Google Fonts: Baloo 2 (display) + Be Vietnam Pro (body) — đều hỗ trợ tiếng Việt -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --cream:#FFF7EF;
-  --ink:#222B45;
-  --ink-soft:#5A6275;
-  --coral:#FF6B5E;
-  --coral-dark:#F0493A;
-  --teal:#1CC8A8;
-  --teal-dark:#13A98D;
-  --amber:#FFB13C;
-  --grape:#7B6CF6;
-  --sky:#3FA9F5;
-  --rose:#FF7BAC;
-  --card:#FFFFFF;
-  --shadow:0 18px 40px -18px rgba(34,43,69,.28);
-  --shadow-sm:0 8px 20px -10px rgba(34,43,69,.25);
-  --radius:22px;
-}
-
-*{box-sizing:border-box}
-body{
-  font-family:'Be Vietnam Pro',sans-serif;
-  background:var(--cream);
-  color:var(--ink);
-  overflow-x:hidden;
-}
-h1,h2,h3,h4,h5,.display-font{font-family:'Baloo 2',cursive;letter-spacing:-.01em}
-
-/* ---------- decorative blobs ---------- */
-.blob{position:absolute;border-radius:50%;filter:blur(8px);opacity:.5;z-index:0;pointer-events:none}
-
-/* ---------- NAVBAR ---------- */
-.navbar{
-  background:rgba(255,247,239,.82);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(34,43,69,.06);
-}
-.brand-mark{
-  width:42px;height:42px;border-radius:13px;
-  background:linear-gradient(135deg,var(--coral),var(--amber));
-  display:grid;place-items:center;color:#fff;font-size:1.3rem;
-  box-shadow:0 8px 16px -6px rgba(255,107,94,.6);
-  transform:rotate(-6deg);transition:.3s;
-}
-.navbar-brand:hover .brand-mark{transform:rotate(0) scale(1.05)}
-.brand-name{font-family:'Baloo 2';font-weight:800;font-size:1.45rem;color:var(--ink)}
-.brand-name span{color:var(--coral)}
-.nav-link{font-weight:500;color:var(--ink-soft)!important;border-radius:10px;padding:.45rem .9rem!important;transition:.2s}
-.nav-link:hover{color:var(--coral)!important;background:rgba(255,107,94,.08)}
-.btn-coral{background:var(--coral);color:#fff;border:none;font-weight:600;border-radius:13px;padding:.55rem 1.3rem;box-shadow:0 10px 22px -10px var(--coral-dark);transition:.25s}
-.btn-coral:hover{background:var(--coral-dark);color:#fff;transform:translateY(-2px)}
-.btn-ghost{background:transparent;border:2px solid rgba(34,43,69,.12);color:var(--ink);font-weight:600;border-radius:13px;padding:.5rem 1.2rem;transition:.25s}
-.btn-ghost:hover{border-color:var(--coral);color:var(--coral)}
-
-/* ---------- HERO ---------- */
-.hero{position:relative;padding:72px 0 56px;overflow:hidden}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:#fff;border:1px solid rgba(34,43,69,.08);
-  padding:.4rem 1rem;border-radius:50px;font-weight:600;font-size:.85rem;
-  color:var(--teal-dark);box-shadow:var(--shadow-sm);
-}
-.hero h1{font-size:clamp(2.4rem,5vw,3.7rem);font-weight:800;line-height:1.06;margin:1.1rem 0}
-.hero h1 .hl{position:relative;color:var(--coral);white-space:nowrap}
-.hero h1 .hl::after{content:"";position:absolute;left:-2%;bottom:.06em;width:104%;height:.34em;background:var(--amber);opacity:.45;border-radius:6px;z-index:-1}
-.hero p.lead{color:var(--ink-soft);font-size:1.12rem;max-width:520px}
-
-/* search */
-.search-wrap{
-  background:#fff;border-radius:18px;padding:8px;display:flex;gap:8px;
-  box-shadow:var(--shadow);border:1px solid rgba(34,43,69,.05);max-width:560px;
-}
-.search-wrap input{border:none;outline:none;flex:1;padding:.6rem 1rem;font-size:1rem;background:transparent}
-.search-wrap .btn{border-radius:13px;padding:.6rem 1.3rem;font-weight:600}
-.chip{font-size:.82rem;color:var(--ink-soft);background:#fff;border:1px solid rgba(34,43,69,.08);padding:.3rem .85rem;border-radius:50px;transition:.2s;cursor:pointer;text-decoration:none}
-.chip:hover{border-color:var(--teal);color:var(--teal-dark)}
-
-/* hero illustration cards */
-.float-card{
-  background:#fff;border-radius:18px;padding:1rem 1.1rem;box-shadow:var(--shadow);
-  display:flex;align-items:center;gap:.85rem;border:1px solid rgba(34,43,69,.04);
-}
-.float-card .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;color:#fff;font-size:1.3rem;flex-shrink:0}
-.fc-1{position:absolute;top:6%;right:14%;animation:floaty 5s ease-in-out infinite}
-.fc-2{position:absolute;top:42%;right:2%;animation:floaty 5s ease-in-out infinite .8s}
-.fc-3{position:absolute;bottom:4%;right:24%;animation:floaty 5s ease-in-out infinite 1.6s}
-.hero-art{position:relative;min-height:380px}
-.hero-orb{
-  width:330px;height:330px;border-radius:50%;
-  background:conic-gradient(from 120deg,var(--coral),var(--amber),var(--teal),var(--grape),var(--coral));
-  position:absolute;right:6%;top:50%;transform:translateY(-50%);
-  filter:blur(2px);opacity:.16;animation:spin 22s linear infinite;
-}
-.hero-emoji{position:absolute;right:24%;top:50%;transform:translateY(-50%);font-size:9rem;animation:floaty 6s ease-in-out infinite}
-
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-@keyframes spin{to{transform:translateY(-50%) rotate(360deg)}}
-
-/* ---------- STATS BAR ---------- */
-.stats{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:1.6rem;margin-top:1rem}
-.stat h3{font-size:2rem;font-weight:800;margin:0}
-.stat p{margin:0;color:var(--ink-soft);font-size:.9rem;font-weight:500}
-.stat-divider{width:1px;background:rgba(34,43,69,.08)}
-
-/* ---------- SECTION TITLES ---------- */
-.sec-tag{color:var(--teal-dark);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.8rem}
-.sec-title{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800}
-
-/* ---------- CATEGORY CARDS ---------- */
-.cat-card{
-  background:#fff;border-radius:var(--radius);padding:1.6rem;height:100%;
-  border:1px solid rgba(34,43,69,.05);box-shadow:var(--shadow-sm);
-  transition:.3s;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block;
-}
-.cat-card::before{content:"";position:absolute;inset:0;opacity:0;transition:.3s;z-index:0}
-.cat-card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
-.cat-ic{width:60px;height:60px;border-radius:17px;display:grid;place-items:center;font-size:1.7rem;color:#fff;margin-bottom:1rem;position:relative;z-index:1;transition:.3s}
-.cat-card:hover .cat-ic{transform:rotate(-8deg) scale(1.06)}
-.cat-card h5{font-weight:700;margin-bottom:.35rem;position:relative;z-index:1}
-.cat-card p{color:var(--ink-soft);font-size:.9rem;margin-bottom:.9rem;position:relative;z-index:1}
-.cat-count{font-size:.82rem;font-weight:600;color:var(--ink);background:var(--cream);padding:.3rem .8rem;border-radius:50px;position:relative;z-index:1;display:inline-flex;align-items:center;gap:.4rem}
-.cat-arrow{position:absolute;right:1.5rem;bottom:1.5rem;color:var(--ink-soft);transition:.3s;z-index:1}
-.cat-card:hover .cat-arrow{transform:translateX(4px);color:var(--coral)}
-
-/* ---------- DOC CARDS ---------- */
-.filter-pills .nav-link{
-  background:#fff;border:1px solid rgba(34,43,69,.08);color:var(--ink-soft)!important;
-  margin:0 .3rem .5rem 0;border-radius:50px;font-size:.9rem;
-}
-.filter-pills .nav-link.active{background:var(--ink)!important;color:#fff!important;border-color:var(--ink)}
-.doc-card{
-  background:#fff;border-radius:var(--radius);overflow:hidden;height:100%;
-  border:1px solid rgba(34,43,69,.05);box-shadow:var(--shadow-sm);transition:.3s;
-}
-.doc-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.doc-cover{height:120px;position:relative;display:flex;align-items:flex-end;padding:1rem;overflow:hidden}
-.doc-cover .pat{position:absolute;inset:0;opacity:.18;background-image:radial-gradient(circle at 20% 30%,#fff 2px,transparent 2px);background-size:22px 22px}
-.doc-type{position:relative;z-index:1;background:rgba(255,255,255,.92);color:var(--ink);font-weight:600;font-size:.72rem;padding:.28rem .7rem;border-radius:50px}
-.doc-fmt{position:absolute;top:.9rem;right:.9rem;z-index:1;font-size:1.6rem;color:#fff;opacity:.85}
-.doc-body{padding:1.1rem 1.2rem 1.2rem}
-.doc-body h6{font-weight:700;line-height:1.3;margin-bottom:.4rem}
-.doc-meta{display:flex;align-items:center;gap:.4rem;color:var(--ink-soft);font-size:.82rem;margin-bottom:.85rem}
-.doc-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(34,43,69,.06);padding-top:.8rem}
-.doc-stat{font-size:.8rem;color:var(--ink-soft);display:inline-flex;align-items:center;gap:.3rem}
-.btn-mini{background:var(--cream);border:none;color:var(--ink);font-weight:600;font-size:.82rem;border-radius:10px;padding:.4rem .85rem;transition:.2s}
-.btn-mini:hover{background:var(--coral);color:#fff}
-
-/* ---------- UPLOAD CTA ---------- */
-.cta{
-  background:linear-gradient(120deg,#FF6B5E 0%,#FFB13C 100%);
-  border-radius:30px;padding:3rem;position:relative;overflow:hidden;color:#fff;
-}
-.cta h2{color:#fff;font-weight:800}
-.cta .btn-light{font-weight:700;border-radius:14px;padding:.7rem 1.6rem;color:var(--coral-dark)}
-.cta .dot{position:absolute;border-radius:50%;background:rgba(255,255,255,.16)}
-
-/* ---------- MAJORS ---------- */
-.major-pill{
-  background:#fff;border:1px solid rgba(34,43,69,.07);border-radius:16px;
-  padding:1rem 1.1rem;display:flex;align-items:center;gap:.8rem;height:100%;
-  transition:.25s;text-decoration:none;color:var(--ink);box-shadow:var(--shadow-sm);
-}
-.major-pill:hover{transform:translateY(-4px);border-color:transparent;box-shadow:var(--shadow);color:var(--ink)}
-.major-pill .mic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;color:#fff;font-size:1.2rem;flex-shrink:0}
-.major-pill small{color:var(--ink-soft)}
-
-/* ---------- FOOTER ---------- */
-footer{background:var(--ink);color:#fff;padding:3.5rem 0 1.5rem;margin-top:5rem}
-footer h6{font-family:'Baloo 2';font-weight:700;color:#fff}
-footer a{color:rgba(255,255,255,.65);text-decoration:none;font-size:.92rem;transition:.2s}
-footer a:hover{color:var(--amber)}
-footer .brand-name{color:#fff}
-.foot-social{width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.08);display:grid;place-items:center;color:#fff;transition:.2s}
-.foot-social:hover{background:var(--coral);color:#fff}
-
-/* reveal */
-.reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.3,1)}
-.reveal.show{opacity:1;transform:none}
-
-@media(max-width:991px){.hero-art{display:none}.hero{padding-top:40px}}
-</style>
+<link href="assets/styles.css" rel="stylesheet">
 </head>
 <body>
-
 <!-- ============ NAVBAR ============ -->
 <nav class="navbar navbar-expand-lg sticky-top py-2">
   <div class="container">
-    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
       <span class="brand-mark"><i class="bi bi-mortarboard-fill"></i></span>
       <span class="brand-name">Học<span>Liệu</span></span>
     </a>
@@ -210,20 +25,19 @@ footer .brand-name{color:#fff}
     </button>
     <div class="collapse navbar-collapse" id="nav">
       <ul class="navbar-nav mx-auto gap-1">
-        <li class="nav-item"><a class="nav-link active" href="#">Trang chủ</a></li>
-        <li class="nav-item"><a class="nav-link" href="dm.html">Danh mục</a></li>
-        <li class="nav-item"><a class="nav-link" href="#docs">Tài liệu mới</a></li>
-        <li class="nav-item"><a class="nav-link" href="#majors">Ngành học</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Về chúng tôi</a></li>
+        <li class="nav-item"><a class="nav-link active" href="index.html">Trang chủ</a></li>
+        <li class="nav-item"><a class="nav-link" href="danh-muc.html">Danh mục</a></li>
+        <li class="nav-item"><a class="nav-link" href="tai-lieu-moi.html">Tài liệu mới</a></li>
+        <li class="nav-item"><a class="nav-link" href="nganh-hoc.html">Ngành học</a></li>
+        <li class="nav-item"><a class="nav-link" href="ve-chung-toi.html">Về chúng tôi</a></li>
       </ul>
       <div class="d-flex gap-2">
         <a href="#" class="btn btn-ghost"><i class="bi bi-person me-1"></i>Đăng nhập</a>
-        <a href="#cta" class="btn btn-coral"><i class="bi bi-cloud-arrow-up me-1"></i>Tải lên</a>
+        <a href="tai-lieu-moi.html" class="btn btn-coral"><i class="bi bi-cloud-arrow-up me-1"></i>Tải lên</a>
       </div>
     </div>
   </div>
 </nav>
-
 <!-- ============ HERO ============ -->
 <header class="hero">
   <div class="blob" style="width:260px;height:260px;background:var(--teal);top:-60px;left:-80px"></div>
@@ -243,10 +57,10 @@ footer .brand-name{color:#fff}
 
         <div class="d-flex flex-wrap gap-2 mt-3">
           <span class="text-secondary small me-1 align-self-center">Phổ biến:</span>
-          <a href="#" class="chip">Giải tích 1</a>
-          <a href="#" class="chip">Triết học Mác-Lênin</a>
-          <a href="#" class="chip">Lập trình C++</a>
-          <a href="#" class="chip">Kinh tế vi mô</a>
+          <a href="tai-lieu-moi.html" class="chip">Giải tích 1</a>
+          <a href="tai-lieu-moi.html" class="chip">Triết học Mác-Lênin</a>
+          <a href="tai-lieu-moi.html" class="chip">Lập trình C++</a>
+          <a href="tai-lieu-moi.html" class="chip">Kinh tế vi mô</a>
         </div>
       </div>
 
@@ -270,7 +84,6 @@ footer .brand-name{color:#fff}
       </div>
     </div>
 
-    <!-- STATS -->
     <div class="stats reveal">
       <div class="row text-center align-items-center">
         <div class="col stat"><h3 style="color:var(--coral)">12K+</h3><p>Tài liệu</p></div>
@@ -286,16 +99,15 @@ footer .brand-name{color:#fff}
 </header>
 
 <!-- ============ CATEGORIES ============ -->
-<section class="container py-5 my-3" id="categories">
+<section class="container py-5 my-3">
   <div class="text-center mb-5 reveal">
     <span class="sec-tag">Danh mục</span>
     <h2 class="sec-title mt-2">Bạn cần loại tài liệu nào?</h2>
     <p class="text-secondary">Chọn danh mục để khám phá hàng nghìn tài liệu được phân loại rõ ràng</p>
   </div>
-
   <div class="row g-4">
     <div class="col-md-6 col-lg-4 reveal">
-      <a href="#" class="cat-card">
+      <a href="tai-lieu-moi.html" class="cat-card">
         <div class="cat-ic" style="background:linear-gradient(135deg,var(--coral),#FF9478)"><i class="bi bi-ui-checks-grid"></i></div>
         <h5>Đề thi trắc nghiệm</h5>
         <p>Ngân hàng câu hỏi trắc nghiệm các môn, có đáp án và lời giải chi tiết.</p>
@@ -304,16 +116,16 @@ footer .brand-name{color:#fff}
       </a>
     </div>
     <div class="col-md-6 col-lg-4 reveal">
-      <a href="#" class="cat-card">
+      <a href="tai-lieu-moi.html" class="cat-card">
         <div class="cat-ic" style="background:linear-gradient(135deg,var(--teal),#3FE0C2)"><i class="bi bi-pencil-square"></i></div>
-        <h5>Đề tự luận & cuối kỳ</h5>
+        <h5>Đề tự luận &amp; cuối kỳ</h5>
         <p>Đề thi tự luận, đề thi kết thúc học phần qua các năm kèm gợi ý làm bài.</p>
         <span class="cat-count"><i class="bi bi-file-earmark-text"></i> 2.180 đề</span>
         <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
       </a>
     </div>
     <div class="col-md-6 col-lg-4 reveal">
-      <a href="#" class="cat-card">
+      <a href="tai-lieu-moi.html" class="cat-card">
         <div class="cat-ic" style="background:linear-gradient(135deg,var(--grape),#9D8FFF)"><i class="bi bi-journal-bookmark-fill"></i></div>
         <h5>Giáo trình môn học</h5>
         <p>Giáo trình chính thức và slide bài giảng theo từng học phần, từng giảng viên.</p>
@@ -322,7 +134,7 @@ footer .brand-name{color:#fff}
       </a>
     </div>
     <div class="col-md-6 col-lg-4 reveal">
-      <a href="#" class="cat-card">
+      <a href="tai-lieu-moi.html" class="cat-card">
         <div class="cat-ic" style="background:linear-gradient(135deg,var(--amber),#FFD37A)"><i class="bi bi-book-half"></i></div>
         <h5>Sách tham khảo</h5>
         <p>Sách điện tử, ebook chuyên môn và sách kỹ năng phục vụ học tập, nghiên cứu.</p>
@@ -331,7 +143,7 @@ footer .brand-name{color:#fff}
       </a>
     </div>
     <div class="col-md-6 col-lg-4 reveal">
-      <a href="#" class="cat-card">
+      <a href="tai-lieu-moi.html" class="cat-card">
         <div class="cat-ic" style="background:linear-gradient(135deg,var(--sky),#7FCBFF)"><i class="bi bi-diagram-3-fill"></i></div>
         <h5>Tài liệu chuyên ngành</h5>
         <p>Tài liệu chuyên sâu theo từng ngành: kỹ thuật, kinh tế, y dược, luật, sư phạm...</p>
@@ -340,229 +152,136 @@ footer .brand-name{color:#fff}
       </a>
     </div>
     <div class="col-md-6 col-lg-4 reveal">
-      <a href="#" class="cat-card">
+      <a href="tai-lieu-moi.html" class="cat-card">
         <div class="cat-ic" style="background:linear-gradient(135deg,var(--rose),#FFA7C7)"><i class="bi bi-clipboard2-check-fill"></i></div>
-        <h5>Đồ án & tiểu luận</h5>
+        <h5>Đồ án &amp; tiểu luận</h5>
         <p>Mẫu báo cáo thực tập, đồ án tốt nghiệp và tiểu luận để bạn tham khảo cách trình bày.</p>
         <span class="cat-count"><i class="bi bi-file-earmark-text"></i> 980 tài liệu</span>
         <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
       </a>
     </div>
   </div>
+  <div class="text-center mt-4 reveal">
+    <a href="danh-muc.html" class="btn btn-ghost"><i class="bi bi-grid-3x3-gap me-1"></i> Xem tất cả danh mục</a>
+  </div>
 </section>
 
 <!-- ============ DOCUMENTS ============ -->
-<section class="container py-4" id="docs">
+<section class="container py-4">
   <div class="d-flex flex-wrap justify-content-between align-items-end mb-4 reveal">
     <div>
       <span class="sec-tag">Mới cập nhật</span>
       <h2 class="sec-title mt-2 mb-0">Tài liệu nổi bật</h2>
     </div>
-    <a href="#" class="btn btn-ghost mt-2"><i class="bi bi-grid me-1"></i> Xem tất cả</a>
+    <a href="tai-lieu-moi.html" class="btn btn-ghost mt-2"><i class="bi bi-grid me-1"></i> Xem tất cả</a>
   </div>
-
-  <!-- filter -->
-  <ul class="nav filter-pills mb-4 reveal">
-    <li><a class="nav-link active" href="#">Tất cả</a></li>
-    <li><a class="nav-link" href="#">Trắc nghiệm</a></li>
-    <li><a class="nav-link" href="#">Tự luận</a></li>
-    <li><a class="nav-link" href="#">Giáo trình</a></li>
-    <li><a class="nav-link" href="#">Sách</a></li>
-    <li><a class="nav-link" href="#">Chuyên ngành</a></li>
-  </ul>
-
   <div class="row g-4">
-    <!-- card -->
-    <div class="col-sm-6 col-lg-3 reveal">
-      <div class="doc-card">
-        <div class="doc-cover" style="background:linear-gradient(135deg,var(--coral),#FF9478)">
-          <div class="pat"></div>
-          <span class="doc-type">Trắc nghiệm</span>
-          <i class="bi bi-file-earmark-pdf-fill doc-fmt"></i>
-        </div>
-        <div class="doc-body">
-          <h6>500 câu trắc nghiệm Triết học Mác-Lênin có đáp án</h6>
-          <div class="doc-meta"><i class="bi bi-building"></i> ĐH Kinh tế Quốc dân</div>
-          <div class="doc-foot">
-            <div class="d-flex gap-3">
-              <span class="doc-stat"><i class="bi bi-download"></i> 4.2K</span>
-              <span class="doc-stat"><i class="bi bi-star-fill" style="color:var(--amber)"></i> 4.9</span>
+        <div class="col-sm-6 col-lg-3 reveal" data-cat="trac-nghiem">
+          <div class="doc-card">
+            <div class="doc-cover" style="background:linear-gradient(135deg,var(--coral),#FF9478)">
+              <div class="pat"></div>
+              <span class="doc-type">Trắc nghiệm</span>
+              <i class="bi bi-file-earmark-pdf-fill doc-fmt"></i>
             </div>
-            <button class="btn btn-mini"><i class="bi bi-download"></i></button>
+            <div class="doc-body">
+              <h6>500 câu trắc nghiệm Triết học Mác-Lênin có đáp án</h6>
+              <div class="doc-meta"><i class="bi bi-building"></i> ĐH Kinh tế Quốc dân</div>
+              <div class="doc-foot">
+                <div class="d-flex gap-3">
+                  <span class="doc-stat"><i class="bi bi-download"></i> 4.2K</span>
+                  <span class="doc-stat"><i class="bi bi-star-fill" style="color:var(--amber)"></i> 4.9</span>
+                </div>
+                <button class="btn btn-mini"><i class="bi bi-download"></i></button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-lg-3 reveal">
-      <div class="doc-card">
-        <div class="doc-cover" style="background:linear-gradient(135deg,var(--teal),#3FE0C2)">
-          <div class="pat"></div>
-          <span class="doc-type">Tự luận</span>
-          <i class="bi bi-file-earmark-word-fill doc-fmt"></i>
-        </div>
-        <div class="doc-body">
-          <h6>Đề thi cuối kỳ Giải tích 1 — Tổng hợp 2020–2024</h6>
-          <div class="doc-meta"><i class="bi bi-building"></i> ĐH Bách Khoa HN</div>
-          <div class="doc-foot">
-            <div class="d-flex gap-3">
-              <span class="doc-stat"><i class="bi bi-download"></i> 3.8K</span>
-              <span class="doc-stat"><i class="bi bi-star-fill" style="color:var(--amber)"></i> 4.8</span>
+        <div class="col-sm-6 col-lg-3 reveal" data-cat="tu-luan">
+          <div class="doc-card">
+            <div class="doc-cover" style="background:linear-gradient(135deg,var(--teal),#3FE0C2)">
+              <div class="pat"></div>
+              <span class="doc-type">Tự luận</span>
+              <i class="bi bi-file-earmark-word-fill doc-fmt"></i>
             </div>
-            <button class="btn btn-mini"><i class="bi bi-download"></i></button>
+            <div class="doc-body">
+              <h6>Đề thi cuối kỳ Giải tích 1 — Tổng hợp 2020–2024</h6>
+              <div class="doc-meta"><i class="bi bi-building"></i> ĐH Bách Khoa HN</div>
+              <div class="doc-foot">
+                <div class="d-flex gap-3">
+                  <span class="doc-stat"><i class="bi bi-download"></i> 3.8K</span>
+                  <span class="doc-stat"><i class="bi bi-star-fill" style="color:var(--amber)"></i> 4.8</span>
+                </div>
+                <button class="btn btn-mini"><i class="bi bi-download"></i></button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-lg-3 reveal">
-      <div class="doc-card">
-        <div class="doc-cover" style="background:linear-gradient(135deg,var(--grape),#9D8FFF)">
-          <div class="pat"></div>
-          <span class="doc-type">Giáo trình</span>
-          <i class="bi bi-file-earmark-ppt-fill doc-fmt"></i>
-        </div>
-        <div class="doc-body">
-          <h6>Giáo trình Kinh tế Vi mô — Slide bài giảng đầy đủ</h6>
-          <div class="doc-meta"><i class="bi bi-building"></i> ĐH Ngoại thương</div>
-          <div class="doc-foot">
-            <div class="d-flex gap-3">
-              <span class="doc-stat"><i class="bi bi-download"></i> 5.1K</span>
-              <span class="doc-stat"><i class="bi bi-star-fill" style="color:var(--amber)"></i> 4.9</span>
+        <div class="col-sm-6 col-lg-3 reveal" data-cat="giao-trinh">
+          <div class="doc-card">
+            <div class="doc-cover" style="background:linear-gradient(135deg,var(--grape),#9D8FFF)">
+              <div class="pat"></div>
+              <span class="doc-type">Giáo trình</span>
+              <i class="bi bi-file-earmark-ppt-fill doc-fmt"></i>
             </div>
-            <button class="btn btn-mini"><i class="bi bi-download"></i></button>
+            <div class="doc-body">
+              <h6>Giáo trình Kinh tế Vi mô — Slide bài giảng đầy đủ</h6>
+              <div class="doc-meta"><i class="bi bi-building"></i> ĐH Ngoại thương</div>
+              <div class="doc-foot">
+                <div class="d-flex gap-3">
+                  <span class="doc-stat"><i class="bi bi-download"></i> 5.1K</span>
+                  <span class="doc-stat"><i class="bi bi-star-fill" style="color:var(--amber)"></i> 4.9</span>
+                </div>
+                <button class="btn btn-mini"><i class="bi bi-download"></i></button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-lg-3 reveal">
-      <div class="doc-card">
-        <div class="doc-cover" style="background:linear-gradient(135deg,var(--sky),#7FCBFF)">
-          <div class="pat"></div>
-          <span class="doc-type">Chuyên ngành</span>
-          <i class="bi bi-file-earmark-code-fill doc-fmt"></i>
-        </div>
-        <div class="doc-body">
-          <h6>Cấu trúc dữ liệu & Giải thuật — Tài liệu CNTT</h6>
-          <div class="doc-meta"><i class="bi bi-building"></i> ĐH Công nghệ ĐHQGHN</div>
-          <div class="doc-foot">
-            <div class="d-flex gap-3">
-              <span class="doc-stat"><i class="bi bi-download"></i> 6.4K</span>
-              <span class="doc-stat"><i class="bi bi-star-fill" style="color:var(--amber)"></i> 5.0</span>
+        <div class="col-sm-6 col-lg-3 reveal" data-cat="chuyen-nganh">
+          <div class="doc-card">
+            <div class="doc-cover" style="background:linear-gradient(135deg,var(--sky),#7FCBFF)">
+              <div class="pat"></div>
+              <span class="doc-type">Chuyên ngành</span>
+              <i class="bi bi-file-earmark-code-fill doc-fmt"></i>
             </div>
-            <button class="btn btn-mini"><i class="bi bi-download"></i></button>
+            <div class="doc-body">
+              <h6>Cấu trúc dữ liệu &amp; Giải thuật — Tài liệu CNTT</h6>
+              <div class="doc-meta"><i class="bi bi-building"></i> ĐH Công nghệ ĐHQGHN</div>
+              <div class="doc-foot">
+                <div class="d-flex gap-3">
+                  <span class="doc-stat"><i class="bi bi-download"></i> 6.4K</span>
+                  <span class="doc-stat"><i class="bi bi-star-fill" style="color:var(--amber)"></i> 5.0</span>
+                </div>
+                <button class="btn btn-mini"><i class="bi bi-download"></i></button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-lg-3 reveal">
-      <div class="doc-card">
-        <div class="doc-cover" style="background:linear-gradient(135deg,var(--amber),#FFD37A)">
-          <div class="pat"></div>
-          <span class="doc-type">Sách</span>
-          <i class="bi bi-file-earmark-pdf-fill doc-fmt"></i>
-        </div>
-        <div class="doc-body">
-          <h6>Nguyên lý Kế toán — Sách điện tử bản đầy đủ</h6>
-          <div class="doc-meta"><i class="bi bi-building"></i> Học viện Tài chính</div>
-          <div class="doc-foot">
-            <div class="d-flex gap-3">
-              <span class="doc-stat"><i class="bi bi-download"></i> 2.9K</span>
-              <span class="doc-stat"><i class="bi bi-star-fill" style="color:var(--amber)"></i> 4.7</span>
-            </div>
-            <button class="btn btn-mini"><i class="bi bi-download"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-lg-3 reveal">
-      <div class="doc-card">
-        <div class="doc-cover" style="background:linear-gradient(135deg,var(--rose),#FFA7C7)">
-          <div class="pat"></div>
-          <span class="doc-type">Trắc nghiệm</span>
-          <i class="bi bi-file-earmark-word-fill doc-fmt"></i>
-        </div>
-        <div class="doc-body">
-          <h6>Ngân hàng câu hỏi Tư tưởng Hồ Chí Minh</h6>
-          <div class="doc-meta"><i class="bi bi-building"></i> ĐH Sư phạm HN</div>
-          <div class="doc-foot">
-            <div class="d-flex gap-3">
-              <span class="doc-stat"><i class="bi bi-download"></i> 3.3K</span>
-              <span class="doc-stat"><i class="bi bi-star-fill" style="color:var(--amber)"></i> 4.8</span>
-            </div>
-            <button class="btn btn-mini"><i class="bi bi-download"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-lg-3 reveal">
-      <div class="doc-card">
-        <div class="doc-cover" style="background:linear-gradient(135deg,var(--teal-dark),var(--teal))">
-          <div class="pat"></div>
-          <span class="doc-type">Giáo trình</span>
-          <i class="bi bi-file-earmark-pdf-fill doc-fmt"></i>
-        </div>
-        <div class="doc-body">
-          <h6>Vật lý Đại cương 2 — Giáo trình + bài tập</h6>
-          <div class="doc-meta"><i class="bi bi-building"></i> ĐH Khoa học Tự nhiên</div>
-          <div class="doc-foot">
-            <div class="d-flex gap-3">
-              <span class="doc-stat"><i class="bi bi-download"></i> 2.1K</span>
-              <span class="doc-stat"><i class="bi bi-star-fill" style="color:var(--amber)"></i> 4.6</span>
-            </div>
-            <button class="btn btn-mini"><i class="bi bi-download"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-lg-3 reveal">
-      <div class="doc-card">
-        <div class="doc-cover" style="background:linear-gradient(135deg,#FF6B5E,var(--grape))">
-          <div class="pat"></div>
-          <span class="doc-type">Chuyên ngành</span>
-          <i class="bi bi-file-earmark-text-fill doc-fmt"></i>
-        </div>
-        <div class="doc-body">
-          <h6>Giải phẫu học — Tài liệu ngành Y khoa</h6>
-          <div class="doc-meta"><i class="bi bi-building"></i> ĐH Y Hà Nội</div>
-          <div class="doc-foot">
-            <div class="d-flex gap-3">
-              <span class="doc-stat"><i class="bi bi-download"></i> 4.7K</span>
-              <span class="doc-stat"><i class="bi bi-star-fill" style="color:var(--amber)"></i> 4.9</span>
-            </div>
-            <button class="btn btn-mini"><i class="bi bi-download"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
 <!-- ============ MAJORS ============ -->
-<section class="container py-5 my-3" id="majors">
+<section class="container py-5 my-3">
   <div class="text-center mb-5 reveal">
     <span class="sec-tag">Theo chuyên ngành</span>
     <h2 class="sec-title mt-2">Tìm tài liệu theo ngành của bạn</h2>
   </div>
   <div class="row g-3">
-    <div class="col-6 col-md-4 col-lg-3 reveal"><a class="major-pill" href="#"><span class="mic" style="background:var(--sky)"><i class="bi bi-cpu"></i></span><div><div class="fw-semibold">Công nghệ thông tin</div><small>1.840 tài liệu</small></div></a></div>
-    <div class="col-6 col-md-4 col-lg-3 reveal"><a class="major-pill" href="#"><span class="mic" style="background:var(--coral)"><i class="bi bi-graph-up-arrow"></i></span><div><div class="fw-semibold">Kinh tế</div><small>2.110 tài liệu</small></div></a></div>
-    <div class="col-6 col-md-4 col-lg-3 reveal"><a class="major-pill" href="#"><span class="mic" style="background:var(--teal)"><i class="bi bi-gear-wide-connected"></i></span><div><div class="fw-semibold">Kỹ thuật</div><small>1.560 tài liệu</small></div></a></div>
-    <div class="col-6 col-md-4 col-lg-3 reveal"><a class="major-pill" href="#"><span class="mic" style="background:var(--rose)"><i class="bi bi-heart-pulse"></i></span><div><div class="fw-semibold">Y - Dược</div><small>920 tài liệu</small></div></a></div>
-    <div class="col-6 col-md-4 col-lg-3 reveal"><a class="major-pill" href="#"><span class="mic" style="background:var(--grape)"><i class="bi bi-bank"></i></span><div><div class="fw-semibold">Luật</div><small>740 tài liệu</small></div></a></div>
-    <div class="col-6 col-md-4 col-lg-3 reveal"><a class="major-pill" href="#"><span class="mic" style="background:var(--amber)"><i class="bi bi-easel2"></i></span><div><div class="fw-semibold">Sư phạm</div><small>1.230 tài liệu</small></div></a></div>
-    <div class="col-6 col-md-4 col-lg-3 reveal"><a class="major-pill" href="#"><span class="mic" style="background:var(--teal-dark)"><i class="bi bi-translate"></i></span><div><div class="fw-semibold">Ngôn ngữ</div><small>880 tài liệu</small></div></a></div>
-    <div class="col-6 col-md-4 col-lg-3 reveal"><a class="major-pill" href="#"><span class="mic" style="background:var(--coral-dark)"><i class="bi bi-megaphone"></i></span><div><div class="fw-semibold">Truyền thông</div><small>650 tài liệu</small></div></a></div>
+    <div class="col-6 col-md-4 col-lg-3 reveal"><a class="major-pill" href="tai-lieu-moi.html"><span class="mic" style="background:var(--sky)"><i class="bi bi-cpu"></i></span><div><div class="fw-semibold">Công nghệ thông tin</div><small>1.840 tài liệu</small></div></a></div>
+    <div class="col-6 col-md-4 col-lg-3 reveal"><a class="major-pill" href="tai-lieu-moi.html"><span class="mic" style="background:var(--coral)"><i class="bi bi-graph-up-arrow"></i></span><div><div class="fw-semibold">Kinh tế</div><small>2.110 tài liệu</small></div></a></div>
+    <div class="col-6 col-md-4 col-lg-3 reveal"><a class="major-pill" href="tai-lieu-moi.html"><span class="mic" style="background:var(--teal)"><i class="bi bi-gear-wide-connected"></i></span><div><div class="fw-semibold">Kỹ thuật</div><small>1.560 tài liệu</small></div></a></div>
+    <div class="col-6 col-md-4 col-lg-3 reveal"><a class="major-pill" href="tai-lieu-moi.html"><span class="mic" style="background:var(--rose)"><i class="bi bi-heart-pulse"></i></span><div><div class="fw-semibold">Y - Dược</div><small>920 tài liệu</small></div></a></div>
+    <div class="col-6 col-md-4 col-lg-3 reveal"><a class="major-pill" href="tai-lieu-moi.html"><span class="mic" style="background:var(--grape)"><i class="bi bi-bank"></i></span><div><div class="fw-semibold">Luật</div><small>740 tài liệu</small></div></a></div>
+    <div class="col-6 col-md-4 col-lg-3 reveal"><a class="major-pill" href="tai-lieu-moi.html"><span class="mic" style="background:var(--amber)"><i class="bi bi-easel2"></i></span><div><div class="fw-semibold">Sư phạm</div><small>1.230 tài liệu</small></div></a></div>
+    <div class="col-6 col-md-4 col-lg-3 reveal"><a class="major-pill" href="tai-lieu-moi.html"><span class="mic" style="background:var(--teal-dark)"><i class="bi bi-translate"></i></span><div><div class="fw-semibold">Ngôn ngữ</div><small>880 tài liệu</small></div></a></div>
+    <div class="col-6 col-md-4 col-lg-3 reveal"><a class="major-pill" href="tai-lieu-moi.html"><span class="mic" style="background:var(--coral-dark)"><i class="bi bi-megaphone"></i></span><div><div class="fw-semibold">Truyền thông</div><small>650 tài liệu</small></div></a></div>
+  </div>
+  <div class="text-center mt-4 reveal">
+    <a href="nganh-hoc.html" class="btn btn-ghost"><i class="bi bi-grid-3x3-gap me-1"></i> Xem tất cả ngành học</a>
   </div>
 </section>
 
 <!-- ============ UPLOAD CTA ============ -->
-<section class="container py-4" id="cta">
+<section class="container py-4">
   <div class="cta reveal">
     <span class="dot" style="width:160px;height:160px;top:-40px;right:8%"></span>
     <span class="dot" style="width:90px;height:90px;bottom:-20px;left:14%"></span>
@@ -573,18 +292,17 @@ footer .brand-name{color:#fff}
         <p class="mb-0 fs-5" style="opacity:.92;max-width:600px">Đóng góp tài liệu của bạn để giúp hàng nghìn sinh viên khác học tốt hơn. Mỗi lượt tải về đều tích điểm thưởng cho bạn.</p>
       </div>
       <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
-        <a href="#" class="btn btn-light btn-lg"><i class="bi bi-cloud-arrow-up-fill me-2"></i>Tải tài liệu lên</a>
+        <a href="tai-lieu-moi.html" class="btn btn-light btn-lg"><i class="bi bi-cloud-arrow-up-fill me-2"></i>Tải tài liệu lên</a>
       </div>
     </div>
   </div>
 </section>
-
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="container">
     <div class="row g-4">
       <div class="col-lg-4">
-        <a class="navbar-brand d-flex align-items-center gap-2 mb-3" href="#">
+        <a class="navbar-brand d-flex align-items-center gap-2 mb-3" href="index.html">
           <span class="brand-mark"><i class="bi bi-mortarboard-fill"></i></span>
           <span class="brand-name">Học<span>Liệu</span></span>
         </a>
@@ -599,19 +317,19 @@ footer .brand-name{color:#fff}
       <div class="col-6 col-lg-2">
         <h6 class="mb-3">Danh mục</h6>
         <ul class="list-unstyled d-grid gap-2">
-          <li><a href="#">Đề trắc nghiệm</a></li>
-          <li><a href="#">Đề tự luận</a></li>
-          <li><a href="#">Giáo trình</a></li>
-          <li><a href="#">Sách tham khảo</a></li>
+          <li><a href="danh-muc.html">Đề trắc nghiệm</a></li>
+          <li><a href="danh-muc.html">Đề tự luận</a></li>
+          <li><a href="danh-muc.html">Giáo trình</a></li>
+          <li><a href="danh-muc.html">Sách tham khảo</a></li>
         </ul>
       </div>
       <div class="col-6 col-lg-2">
         <h6 class="mb-3">Khám phá</h6>
         <ul class="list-unstyled d-grid gap-2">
-          <li><a href="#">Tài liệu mới</a></li>
-          <li><a href="#">Xếp hạng tuần</a></li>
-          <li><a href="#">Theo ngành</a></li>
-          <li><a href="#">Theo trường</a></li>
+          <li><a href="tai-lieu-moi.html">Tài liệu mới</a></li>
+          <li><a href="tai-lieu-moi.html">Xếp hạng tuần</a></li>
+          <li><a href="nganh-hoc.html">Theo ngành</a></li>
+          <li><a href="nganh-hoc.html">Theo trường</a></li>
         </ul>
       </div>
       <div class="col-lg-4">
@@ -627,46 +345,12 @@ footer .brand-name{color:#fff}
     <div class="d-flex flex-wrap justify-content-between align-items-center" style="color:rgba(255,255,255,.55);font-size:.88rem">
       <span>© 2025 HọcLiệu. Tài liệu chia sẻ vì cộng đồng sinh viên.</span>
       <div class="d-flex gap-3 mt-2 mt-md-0">
-        <a href="#">Điều khoản</a><a href="#">Bảo mật</a><a href="#">Liên hệ</a>
+        <a href="ve-chung-toi.html">Điều khoản</a><a href="ve-chung-toi.html">Bảo mật</a><a href="ve-chung-toi.html">Liên hệ</a>
       </div>
     </div>
   </div>
 </footer>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-<script>
-// scroll reveal
-const io=new IntersectionObserver((entries)=>{
-  entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('show'), (i%4)*80); io.unobserve(e.target);} });
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-// filter pills active state
-document.querySelectorAll('.filter-pills .nav-link').forEach(l=>{
-  l.addEventListener('click',ev=>{ev.preventDefault();
-    document.querySelectorAll('.filter-pills .nav-link').forEach(x=>x.classList.remove('active'));
-    l.classList.add('active');
-  });
-});
-
-// 1. Chặn chuột phải
-document.addEventListener('contextmenu', e => e.preventDefault());
-
-// 2. Chặn một số phím tắt mở DevTools / xem nguồn
-document.addEventListener('keydown', e => {
-  if (
-    e.key === 'F12' ||                                  // F12
-    (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key.toUpperCase())) || // Ctrl+Shift+I/J/C
-    (e.ctrlKey && e.key.toUpperCase() === 'U') ||       // Ctrl+U (view-source)
-    (e.ctrlKey && e.key.toUpperCase() === 'S')          // Ctrl+S (lưu trang)
-  ) {
-    e.preventDefault();
-  }
-});
-
-// 3. Chặn bôi đen / copy (tùy chọn, có thể gây khó chịu cho người dùng thật)
-document.addEventListener('selectstart', e => e.preventDefault());
-document.addEventListener('copy', e => e.preventDefault());
-</script>
+<script src="assets/app.js"></script>
 </body>
 </html>
