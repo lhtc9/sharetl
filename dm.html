@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danh mục tài liệu — HọcLiệu</title>
+<link href="assets/styles.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="assets/styles.css" rel="stylesheet">
+</head>
+<body>
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar navbar-expand-lg sticky-top py-2">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <span class="brand-mark"><i class="bi bi-mortarboard-fill"></i></span>
+      <span class="brand-name">Học<span>Liệu</span></span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <i class="bi bi-list fs-2"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+        <li class="nav-item"><a class="nav-link active" href="danh-muc.html">Danh mục</a></li>
+        <li class="nav-item"><a class="nav-link" href="tai-lieu-moi.html">Tài liệu mới</a></li>
+        <li class="nav-item"><a class="nav-link" href="nganh-hoc.html">Ngành học</a></li>
+        <li class="nav-item"><a class="nav-link" href="ve-chung-toi.html">Về chúng tôi</a></li>
+      </ul>
+      <div class="d-flex gap-2">
+        <a href="#" class="btn btn-ghost"><i class="bi bi-person me-1"></i>Đăng nhập</a>
+        <a href="tai-lieu-moi.html" class="btn btn-coral"><i class="bi bi-cloud-arrow-up me-1"></i>Tải lên</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- ============ PAGE HEAD ============ -->
+<header class="page-head">
+  <div class="blob" style="width:240px;height:240px;background:var(--teal);top:-70px;left:-70px"></div>
+  <div class="blob" style="width:180px;height:180px;background:var(--amber);bottom:-50px;right:6%"></div>
+  <div class="container position-relative" style="z-index:1">
+    <div class="breadcrumb-mini">
+      <a href="index.html">Trang chủ</a><i class="bi bi-chevron-right"></i><span>Danh mục</span>
+    </div>
+    <h1>Khám phá <span class="hl">danh mục tài liệu</span></h1>
+    <p class="lead">Mọi loại tài liệu được phân loại rõ ràng để bạn tìm đúng thứ mình cần chỉ trong vài giây.</p>
+    <div class="seg-switch mt-4 reveal">
+      <button class="active" data-target="cat-all"><i class="bi bi-grid-fill"></i> Theo loại</button>
+      <button data-target="cat-format"><i class="bi bi-filetype-pdf"></i> Theo định dạng</button>
+      <button data-target="cat-popular"><i class="bi bi-fire"></i> Phổ biến nhất</button>
+    </div>
+  </div>
+</header>
+
+<section class="container py-4">
+  <!-- PANEL 1: theo loại -->
+  <div id="cat-all" class="tab-panel active">
+    <div class="row g-4">
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,var(--coral),#FF9478)"><i class="bi bi-ui-checks-grid"></i></div>
+        <h5>Đề thi trắc nghiệm</h5>
+        <p>Ngân hàng câu hỏi trắc nghiệm các môn, có đáp án và lời giải chi tiết.</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> 3.240 đề</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,var(--teal),#3FE0C2)"><i class="bi bi-pencil-square"></i></div>
+        <h5>Đề tự luận &amp; cuối kỳ</h5>
+        <p>Đề thi tự luận, đề thi kết thúc học phần qua các năm kèm gợi ý làm bài.</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> 2.180 đề</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,var(--grape),#9D8FFF)"><i class="bi bi-journal-bookmark-fill"></i></div>
+        <h5>Giáo trình môn học</h5>
+        <p>Giáo trình chính thức và slide bài giảng theo từng học phần, từng giảng viên.</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> 1.960 tài liệu</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,var(--amber),#FFD37A)"><i class="bi bi-book-half"></i></div>
+        <h5>Sách tham khảo</h5>
+        <p>Sách điện tử, ebook chuyên môn và sách kỹ năng phục vụ học tập, nghiên cứu.</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> 2.510 sách</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,var(--sky),#7FCBFF)"><i class="bi bi-diagram-3-fill"></i></div>
+        <h5>Tài liệu chuyên ngành</h5>
+        <p>Tài liệu chuyên sâu theo từng ngành: kỹ thuật, kinh tế, y dược, luật, sư phạm...</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> 1.720 tài liệu</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,var(--rose),#FFA7C7)"><i class="bi bi-clipboard2-check-fill"></i></div>
+        <h5>Đồ án &amp; tiểu luận</h5>
+        <p>Mẫu báo cáo thực tập, đồ án tốt nghiệp và tiểu luận để bạn tham khảo cách trình bày.</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> 980 tài liệu</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,var(--teal-dark),var(--teal))"><i class="bi bi-card-checklist"></i></div>
+        <h5>Đề cương ôn tập</h5>
+        <p>Đề cương tổng hợp kiến thức trọng tâm, tóm tắt công thức, mindmap từng chương.</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> 1.140 tài liệu</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,#FF6B5E,var(--grape))"><i class="bi bi-mortarboard-fill"></i></div>
+        <h5>Luận văn &amp; nghiên cứu</h5>
+        <p>Luận văn thạc sĩ, khóa luận, báo cáo nghiên cứu khoa học của sinh viên các trường.</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> 620 tài liệu</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,var(--coral),#FF9478)"><i class="bi bi-soundwave"></i></div>
+        <h5>Ngữ pháp &amp; ngoại ngữ</h5>
+        <p>Tài liệu TOEIC, IELTS, tiếng Nhật, tiếng Trung và các môn ngoại ngữ chuyên ngành.</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> 1.380 tài liệu</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    </div>
+  </div>
+
+  <!-- PANEL 2: theo định dạng -->
+  <div id="cat-format" class="tab-panel">
+    <div class="row g-4">
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,var(--coral),#FF9478)"><i class="bi bi-file-earmark-pdf-fill"></i></div>
+        <h5>Tài liệu PDF</h5>
+        <p>Định dạng phổ biến nhất, giữ nguyên bố cục, đọc tốt trên mọi thiết bị.</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> 7.420 tệp</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,var(--sky),#7FCBFF)"><i class="bi bi-file-earmark-word-fill"></i></div>
+        <h5>Tài liệu Word</h5>
+        <p>Tệp DOCX có thể chỉnh sửa, tiện sao chép và biên soạn lại nội dung.</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> 2.860 tệp</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,var(--amber),#FFD37A)"><i class="bi bi-file-earmark-ppt-fill"></i></div>
+        <h5>Slide PowerPoint</h5>
+        <p>Slide bài giảng, thuyết trình của giảng viên theo từng buổi học.</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> 1.510 tệp</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,var(--teal),#3FE0C2)"><i class="bi bi-file-earmark-excel-fill"></i></div>
+        <h5>Bảng tính Excel</h5>
+        <p>Bảng dữ liệu, bài tập kế toán, mô hình tài chính và thống kê.</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> 430 tệp</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    </div>
+  </div>
+
+  <!-- PANEL 3: phổ biến -->
+  <div id="cat-popular" class="tab-panel">
+    <div class="row g-4">
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,var(--coral),#FF9478)"><i class="bi bi-fire"></i></div>
+        <h5>Triết học Mác-Lênin</h5>
+        <p>Danh mục được tải nhiều nhất tháng này với hơn 18.000 lượt tải.</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> Top 1 tuần</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,var(--grape),#9D8FFF)"><i class="bi bi-fire"></i></div>
+        <h5>Giải tích &amp; Đại số</h5>
+        <p>Tổng hợp đề thi và giáo trình toán cao cấp các trường kỹ thuật.</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> Top 2 tuần</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,var(--teal),#3FE0C2)"><i class="bi bi-fire"></i></div>
+        <h5>Lập trình &amp; CNTT</h5>
+        <p>C++, Python, cấu trúc dữ liệu, cơ sở dữ liệu — luôn được săn đón.</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> Top 3 tuần</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    <div class="col-md-6 col-lg-4 reveal">
+      <a href="tai-lieu-moi.html" class="cat-card">
+        <div class="cat-ic" style="background:linear-gradient(135deg,var(--amber),#FFD37A)"><i class="bi bi-fire"></i></div>
+        <h5>Kinh tế vi mô / vĩ mô</h5>
+        <p>Bộ tài liệu kinh tế học nền tảng cho sinh viên khối ngành kinh tế.</p>
+        <span class="cat-count"><i class="bi bi-file-earmark-text"></i> Top 4 tuần</span>
+        <i class="bi bi-arrow-right fs-4 cat-arrow"></i>
+      </a>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UPLOAD CTA ============ -->
+<section class="container py-4">
+  <div class="cta reveal">
+    <span class="dot" style="width:160px;height:160px;top:-40px;right:8%"></span>
+    <span class="dot" style="width:90px;height:90px;bottom:-20px;left:14%"></span>
+    <span class="dot" style="width:50px;height:50px;top:30%;right:30%"></span>
+    <div class="row align-items-center position-relative" style="z-index:1">
+      <div class="col-lg-8">
+        <h2 class="mb-2">Bạn có tài liệu hay? Chia sẻ ngay! ✨</h2>
+        <p class="mb-0 fs-5" style="opacity:.92;max-width:600px">Đóng góp tài liệu của bạn để giúp hàng nghìn sinh viên khác học tốt hơn. Mỗi lượt tải về đều tích điểm thưởng cho bạn.</p>
+      </div>
+      <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+        <a href="tai-lieu-moi.html" class="btn btn-light btn-lg"><i class="bi bi-cloud-arrow-up-fill me-2"></i>Tải tài liệu lên</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <a class="navbar-brand d-flex align-items-center gap-2 mb-3" href="index.html">
+          <span class="brand-mark"><i class="bi bi-mortarboard-fill"></i></span>
+          <span class="brand-name">Học<span>Liệu</span></span>
+        </a>
+        <p style="color:rgba(255,255,255,.6);max-width:320px">Nền tảng chia sẻ tài liệu học tập miễn phí, đồng hành cùng sinh viên Việt Nam trên hành trình chinh phục tri thức.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" class="foot-social"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="foot-social"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="foot-social"><i class="bi bi-tiktok"></i></a>
+          <a href="#" class="foot-social"><i class="bi bi-envelope-fill"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6 class="mb-3">Danh mục</h6>
+        <ul class="list-unstyled d-grid gap-2">
+          <li><a href="danh-muc.html">Đề trắc nghiệm</a></li>
+          <li><a href="danh-muc.html">Đề tự luận</a></li>
+          <li><a href="danh-muc.html">Giáo trình</a></li>
+          <li><a href="danh-muc.html">Sách tham khảo</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6 class="mb-3">Khám phá</h6>
+        <ul class="list-unstyled d-grid gap-2">
+          <li><a href="tai-lieu-moi.html">Tài liệu mới</a></li>
+          <li><a href="tai-lieu-moi.html">Xếp hạng tuần</a></li>
+          <li><a href="nganh-hoc.html">Theo ngành</a></li>
+          <li><a href="nganh-hoc.html">Theo trường</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h6 class="mb-3">Nhận tài liệu mới mỗi tuần</h6>
+        <p style="color:rgba(255,255,255,.6)">Đăng ký để không bỏ lỡ đề thi và giáo trình mới nhất.</p>
+        <div class="search-wrap" style="box-shadow:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)">
+          <input type="email" placeholder="Email của bạn..." style="color:#fff">
+          <button class="btn btn-coral">Đăng ký</button>
+        </div>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.12);margin:2.5rem 0 1.2rem">
+    <div class="d-flex flex-wrap justify-content-between align-items-center" style="color:rgba(255,255,255,.55);font-size:.88rem">
+      <span>© 2025 HọcLiệu. Tài liệu chia sẻ vì cộng đồng sinh viên.</span>
+      <div class="d-flex gap-3 mt-2 mt-md-0">
+        <a href="ve-chung-toi.html">Điều khoản</a><a href="ve-chung-toi.html">Bảo mật</a><a href="ve-chung-toi.html">Liên hệ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
